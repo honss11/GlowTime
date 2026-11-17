@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><!--SEC--><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-UKyi3nDQVIibSaG677Bg4A7ZmOIKRxiBj+FPAvD8SDc=' 'sha256-BGSc3uDsvlAnm75+lOJ2Jw46VaSVhR/ovqg82kHU/EI='; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src data:; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'"><meta name="referrer" content="no-referrer"><meta name="robots" content="noarchive"><style>body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}input{-webkit-user-select:text;user-select:text}svg,a{-webkit-user-drag:none}</style><script>
+(function(){'use strict';
+try{if(self!==top){top.location.href=self.location.href}}catch(e){document.documentElement.innerHTML=''}
+var TG='https://t.me/FallenZaebat';
+function stop(e){e.preventDefault();e.stopPropagation();return false}
+addEventListener('contextmenu',stop,true);addEventListener('dragstart',stop,true);
+addEventListener('keydown',function(e){var k=(e.key||'').toLowerCase(),c=e.ctrlKey||e.metaKey;
+if(e.key==='F12'||(c&&(k==='u'||k==='s'||k==='p'))||(c&&e.shiftKey&&(k==='i'||k==='j'||k==='c'))||(e.metaKey&&e.altKey&&(k==='i'||k==='j'||k==='u')))stop(e)},true);
+function fix(){document.querySelectorAll('a[href*="t.me"]').forEach(function(a){if(a.href!==TG)a.href=TG;a.rel='noopener noreferrer';a.target='_blank'})}
+new MutationObserver(fix).observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['href','target']});
+addEventListener('DOMContentLoaded',fix);
+})();
+</script><!--/SEC-->
+<title>GlowTime — Майнкрафт сервер</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09050a;--tx:#f6ecec;--mut:#a28f93;--r1:#e11d2e;--r2:#ff4a2e;--r3:#7a0c18;--gold:#f0b45a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:Manrope,sans-serif;overflow-x:hidden}
+h1,h2,h3,.dis{font-family:Unbounded,sans-serif;text-transform:uppercase}
+a{color:inherit;text-decoration:none}
+canvas#fx{position:fixed;inset:0;z-index:0;pointer-events:none}
+section,header,footer,nav{position:relative;z-index:1}
+.wrap{max-width:1240px;margin:auto;padding:0 24px}
+#ld{position:fixed;inset:0;z-index:999;display:flex;align-items:center;justify-content:center;pointer-events:none}
+#ld::before,#ld::after{content:"";position:absolute;left:0;right:0;height:50%;background:#050205;transition:transform 1s cubic-bezier(.8,0,.2,1) .5s}
+#ld::before{top:0}#ld::after{bottom:0}
+#ld b{position:relative;z-index:2;font:800 clamp(30px,6vw,60px) Unbounded;letter-spacing:.1em;color:#fff;text-shadow:0 0 40px var(--r1);animation:lg 1.2s ease both;transition:opacity .4s .3s}
+@keyframes lg{from{opacity:0;letter-spacing:.6em;filter:blur(12px)}}
+#ld.go::before{transform:translateY(-101%)}#ld.go::after{transform:translateY(101%)}#ld.go b{opacity:0}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--r3),var(--r1),var(--gold));z-index:100;box-shadow:0 0 12px var(--r1)}
+#cur{position:fixed;width:420px;height:420px;margin:-210px;border-radius:50%;background:radial-gradient(#e11d2e22,transparent 65%);z-index:0;pointer-events:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(9,5,10,.72);backdrop-filter:blur(14px);border-bottom:1px solid #ffffff10}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font:800 20px Unbounded;display:flex;gap:10px;align-items:center}
+.logo i{width:26px;height:26px;background:linear-gradient(135deg,var(--r2),var(--r3));display:block;animation:spin 6s linear infinite;box-shadow:0 0 22px var(--r1)}
+@keyframes spin{to{transform:rotate(360deg)}}
+nav ul{display:flex;gap:26px;list-style:none;font-weight:600;color:var(--mut)}
+nav ul a{transition:.2s}nav ul a:hover{color:var(--r2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:14px;font:800 14px Manrope;color:#fff;background:linear-gradient(180deg,#f23a3a,#b3121f);position:relative;overflow:hidden;border:0;cursor:pointer;transition:.3s;box-shadow:0 8px 28px #e11d2e55,inset 0 1px 0 #ffffff55;text-align:center}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px #e11d2e99,inset 0 1px 0 #ffffff55;filter:brightness(1.1)}
+.btn::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(90deg,transparent,#fff7,transparent);transform:skewX(-20deg);animation:sh 3.5s infinite}
+@keyframes sh{to{left:140%}}
+.btn.ghost{background:#ffffff0c;box-shadow:inset 0 0 0 1px #ffffff26}
+.btn.full{width:100%}
+header.hero{min-height:100vh;display:flex;align-items:center;padding-top:90px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
+.hero h1{font-size:clamp(40px,6.5vw,92px);line-height:1;font-weight:800;background:linear-gradient(100deg,#fff,#ff7a5c 40%,var(--r1) 75%,#fff);background-size:220%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 6s ease infinite alternate}
+@keyframes flow{to{background-position:100% 0}}
+.hero p{margin:22px 0 30px;color:var(--mut);font-size:18px;max-width:500px;line-height:1.7}
+.row{display:flex;gap:14px;flex-wrap:wrap}
+.stage{position:relative;height:560px}
+.stage .glow{position:absolute;inset:5%;background:radial-gradient(circle,#e11d2e66,transparent 65%);animation:pulse 4s infinite}
+@keyframes pulse{50%{transform:scale(1.15);opacity:.6}}
+.stage .ch{position:absolute;bottom:0;filter:drop-shadow(0 0 30px #e11d2e66)}
+.stage .ch:nth-of-type(1){left:-2%;width:38%;animation:fl 5s ease-in-out infinite}
+.stage .ch:nth-of-type(2){left:26%;width:50%;z-index:2;animation:fl 4s ease-in-out infinite .6s}
+.stage .ch:nth-of-type(3){right:-2%;width:38%;animation:fl 5.5s ease-in-out infinite 1.2s}
+@keyframes fl{50%{transform:translateY(-18px)}}
+.marq{border-block:1px solid #ffffff12;background:linear-gradient(90deg,#e11d2e14,#ffffff05,#e11d2e14);overflow:hidden;padding:16px 0}
+.marq div{display:flex;gap:50px;width:max-content;animation:mq 28s linear infinite;font:800 15px Unbounded;color:var(--mut);white-space:nowrap}
+.marq b{color:var(--r1)}
+@keyframes mq{to{transform:translateX(-50%)}}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:70px 0 20px}
+.stat{padding:30px;border-radius:22px;background:linear-gradient(160deg,#e11d2e18,#ffffff04);border:1px solid #ffffff14;text-align:center;transition:.4s}
+.stat:hover{border-color:var(--r1);transform:translateY(-6px)}
+.stat b{display:block;font:800 38px Unbounded;color:var(--r2);margin-bottom:6px}
+.stat span{color:var(--mut);font-weight:600}
+.sec{padding:90px 0}
+.sec h2{font-size:clamp(28px,4vw,50px);text-align:center;font-weight:800;position:relative;padding-bottom:18px}
+.sec h2::after{content:"";position:absolute;left:50%;bottom:0;width:0;height:3px;background:linear-gradient(90deg,transparent,var(--r1),transparent);transform:translateX(-50%);transition:width 1.2s .4s}
+.sec h2.on::after{width:220px}
+.sec .sub{text-align:center;color:var(--mut);margin:14px auto 54px;max-width:620px;line-height:1.7}
+.rv{opacity:0;transform:translateY(50px);filter:blur(8px);transition:opacity 1s,transform 1s cubic-bezier(.2,.8,.2,1),filter 1s}
+.rv[data-r=l]{transform:translateX(-80px)}.rv[data-r=r]{transform:translateX(80px)}
+.rv[data-r=z]{transform:scale(.7) rotate(-3deg)}
+.rv.on{opacity:1;transform:none;filter:none}
+.tok{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.panel{padding:34px;border-radius:28px;background:linear-gradient(160deg,#1c0b10,#0b0609);border:1px solid #ffffff16;position:relative;overflow:hidden}
+.panel::before{content:"";position:absolute;width:320px;height:320px;right:-110px;top:-110px;background:radial-gradient(#e11d2e44,transparent 70%)}
+.panel h3{font-size:20px;margin:10px 0 8px}
+.rate{display:inline-block;margin:8px 0 22px;padding:8px 14px;border-radius:999px;background:#e11d2e22;color:var(--r2);font-weight:800}
+input[type=range]{width:100%;accent-color:var(--r1);margin:14px 0}
+.num{display:flex;gap:12px;align-items:center}
+.num input{flex:1;padding:14px 16px;border-radius:12px;background:#0008;border:1px solid #ffffff22;color:#fff;font:800 20px Manrope;width:100%}
+.big{font:800 44px Unbounded;margin:14px 0 20px;background:linear-gradient(90deg,#fff,var(--r2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.packs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pack{padding:20px;border-radius:16px;background:#ffffff08;border:1px solid #ffffff14;text-align:center;cursor:pointer;transition:.3s}
+.pack:hover{transform:translateY(-6px) scale(1.03);border-color:var(--r1);box-shadow:0 10px 30px #e11d2e44}
+.pack b{display:block;font:800 22px Unbounded}.pack span{color:var(--mut);font-weight:600}
+.coin{width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff8,#f0b45a 40%,#8a4a10);display:inline-block;animation:coin 3s linear infinite;box-shadow:0 0 25px #f0b45a88}
+@keyframes coin{to{transform:rotateY(360deg)}}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.card{--a:#e11d2e;border-radius:26px;padding:12px 12px 14px;background:#0d080c;border:1px solid #ffffff12;transition:transform .35s,border-color .35s,box-shadow .35s,opacity 1s,filter 1s;position:relative}
+.card:hover{border-color:var(--a);box-shadow:0 20px 60px color-mix(in srgb,var(--a) 45%,transparent)}
+.card .img{height:330px;border-radius:20px;background:radial-gradient(ellipse at 50% 85%,color-mix(in srgb,var(--a) 65%,transparent),color-mix(in srgb,var(--a) 14%,#0a060a) 55%,#0a060a);border:1px solid color-mix(in srgb,var(--a) 55%,transparent);display:flex;justify-content:center;align-items:flex-end;overflow:hidden;position:relative}
+.card .img svg{height:96%;animation:fl 5s ease-in-out infinite;transition:.5s;filter:drop-shadow(0 10px 18px #000a)}
+.card:hover .img svg{transform:scale(1.07) rotate(-1.5deg)}
+.card .img::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,#fff2 50%,transparent 60%);transform:translateX(-100%);transition:.9s}
+.card:hover .img::after{transform:translateX(100%)}
+.card h3{text-align:center;font-size:20px;margin:18px 0 6px;letter-spacing:.06em}
+.price{text-align:center;font:800 26px Unbounded;color:#fff;margin-bottom:14px}
+.price small{font:600 13px Manrope;color:var(--mut)}
+.card.top::before{content:"ТОП";position:absolute;top:-10px;right:18px;background:var(--gold);color:#000;font:800 11px Unbounded;padding:5px 10px;border-radius:8px;z-index:3;animation:pulse 2s infinite}
+.cases{display:flex;flex-wrap:wrap;justify-content:center;gap:26px}.cases .card{width:calc(25% - 20px)}
+.cases .card .img{height:280px;align-items:center}
+.cases .card .img svg{height:90%}
+.cases .btn{font-size:13px}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center}
+.about .box{height:460px;border-radius:30px;background:radial-gradient(ellipse at 50% 80%,#e11d2e88,#0a060a 70%);border:1px solid #e11d2e66;display:flex;justify-content:center;align-items:flex-end;overflow:hidden}
+.about .box svg{height:96%;animation:fl 5s ease-in-out infinite}
+.about h2{text-align:left}.about h2::after{left:0;transform:none}.about h2.on::after{width:140px}
+.about p{color:var(--mut);line-height:1.8;margin:18px 0 26px;font-size:17px}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.feat div{padding:30px;border-radius:22px;background:#ffffff06;border:1px solid #ffffff10;transition:.4s}
+.feat div:hover{transform:translateY(-8px);border-color:var(--r1);background:#e11d2e12}
+.feat em{font-style:normal;font-size:34px;display:block;margin-bottom:12px}
+.feat b{display:block;margin-bottom:8px;font-size:17px}.feat span{color:var(--mut);line-height:1.6}
+details{max-width:800px;margin:0 auto 12px;padding:20px 24px;border-radius:16px;background:#ffffff07;border:1px solid #ffffff10}
+summary{cursor:pointer;font-weight:800;list-style:none;display:flex;justify-content:space-between}
+summary::after{content:"+";color:var(--r2);font-size:22px;transition:.3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:12px;color:var(--mut);line-height:1.7}
+footer{padding:50px 0;border-top:1px solid #ffffff12;text-align:center;color:var(--mut)}
+footer .logo{justify-content:center;margin-bottom:12px;color:#fff}
+@media(max-width:1000px){.hero .wrap,.tok,.about{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.cases .card{width:calc(50% - 13px)}.stats,.feat{grid-template-columns:1fr}nav ul{display:none}.stage{height:420px}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.cases .card{width:100%}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs><filter id="nz"><feTurbulence type="fractalNoise" baseFrequency=".22" numOctaves="1" seed="4" result="t"/><feColorMatrix in="t" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.3 -.5" result="d"/><feComposite in="d" in2="SourceGraphic" operator="in" result="dd"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="dd"/></feMerge></filter></defs></svg>
+<div id="ld"><b>GLOWTIME</b></div><div id="bar"></div><div id="cur"></div><canvas id="fx"></canvas>
+
+<nav><div class="wrap">
+<a class="logo" href="#top"><i></i>GlowTime</a>
+<ul><li><a href="#tokens">Токены</a></li><li><a href="#donate">Донат</a></li><li><a href="#cases">Кейсы</a></li><li><a href="#about">О сервере</a></li><li><a href="#faq">Вопросы</a></li></ul>
+<a class="btn" href="https://t.me/FallenZaebat" target="_blank" rel="noopener noreferrer">Написать в ТГ</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+<div>
+<h1>GlowTime<br>играй ярче</h1>
+<p>Сервер, который создал и ведёт <b style="color:#fff">Fallen</b>. Покупай токены, привилегии и кейсы и становись легендой GlowTime.</p>
+<div class="row"><a class="btn" href="#donate">Открыть магазин</a><a class="btn ghost" href="#cases">Кейсы</a></div>
+</div>
+<div class="stage"><div class="glow"></div><div class="ch" id="h1"></div><div class="ch" id="h2"></div><div class="ch" id="h3"></div></div>
+</div></header>
+
+<div class="marq"><div id="mq"></div></div>
+
+<section><div class="wrap stats">
+<div class="stat rv" data-r="l"><b data-n="9">0</b><span>привилегий</span></div>
+<div class="stat rv" data-r="z"><b>0.15 ₴</b><span>цена одного токена</span></div>
+<div class="stat rv" data-r="r"><b>24/7</b><span>связь с владельцем</span></div>
+</div></section>
+
+<section class="sec" id="tokens"><div class="wrap">
+<h2 class="rv">Магазин токенов</h2>
+<p class="sub rv">Токены — внутриигровая валюта. Курс всегда один: 1 токен = 0.15 грн.</p>
+<div class="tok">
+<div class="panel rv" data-r="l"><span class="coin"></span>
+<h3>Свой вариант</h3><div class="rate">1 токен = 0.15 ₴</div>
+<div class="num"><input id="tn" type="number" min="10" value="1000"><span class="dis">токенов</span></div>
+<input id="tr" type="range" min="10" max="20000" step="10" value="1000">
+<div>К оплате:</div><div class="big" id="tp">150 ₴</div>
+<a class="btn full" href="https://t.me/FallenZaebat" target="_blank" rel="noopener noreferrer">Купить в ТГ — @FallenZaebat</a></div>
+<div class="panel rv" data-r="r"><h3>Готовые наборы</h3><div class="rate">Нажми — подставится в калькулятор</div>
+<div class="packs" id="packs"></div></div>
+</div></div></section>
+
+<section class="sec" id="donate"><div class="wrap">
+<h2 class="rv">Привилегии</h2>
+<p class="sub rv">Выбери ранг и нажми кнопку — откроется чат с владельцем в Telegram.</p>
+<div class="grid" id="dg"></div>
+</div></section>
+
+<section class="sec" id="cases"><div class="wrap">
+<h2 class="rv">Кейсы</h2>
+<p class="sub rv">Открывай кейсы ключами и выбивай ранги, токены, оружие, броню и редкие предметы.</p>
+<div class="cases" id="cg"></div>
+</div></section>
+
+<section class="sec" id="about"><div class="wrap about">
+<div class="box rv" data-r="l" id="ab"></div>
+<div class="rv" data-r="r"><h2>Владелец — Fallen</h2>
+<p>GlowTime создал и развивает Fallen. Он лично отвечает за покупки, проверяет каждый заказ и следит, чтобы донат выдавался быстро. Все вопросы по оплате — напрямую в Telegram.</p>
+<a class="btn" href="https://t.me/FallenZaebat" target="_blank" rel="noopener noreferrer">Связаться с Fallen</a></div>
+</div></section>
+
+<section class="sec"><div class="wrap"><h2 class="rv">Почему мы</h2><p class="sub rv">Коротко о главном.</p>
+<div class="feat">
+<div class="rv" data-r="l"><em>⚔️</em><b>Честная игра</b><span>Сильный античит и активная модерация.</span></div>
+<div class="rv" data-r="z"><em>⚡</em><b>Быстрая выдача</b><span>Донат и токены приходят сразу после оплаты.</span></div>
+<div class="rv" data-r="r"><em>🎁</em><b>События и кейсы</b><span>Ивенты каждую неделю и награды для активных.</span></div>
+</div></div></section>
+
+<section class="sec" id="faq"><div class="wrap"><h2 class="rv">Вопросы</h2><p class="sub rv">Ответы на частые вопросы.</p>
+<details class="rv"><summary>Как купить донат?</summary><p>Нажми «Купить в ТГ» под нужной карточкой — откроется чат с @FallenZaebat. Напиши ник и оплати.</p></details>
+<details class="rv"><summary>Какой курс токенов?</summary><p>1 токен = 0.15 грн. Например, 1000 токенов стоят 150 грн.</p></details>
+<details class="rv"><summary>Где купить кейсы?</summary><p>Кейсы продаются только в Telegram у владельца — @FallenZaebat.</p></details>
+<details class="rv"><summary>Как быстро выдадут?</summary><p>Обычно в течение нескольких минут после подтверждения оплаты.</p></details>
+</div></section>
+
+<footer><div class="wrap"><div class="logo"><i></i>GlowTime</div>
+<p>Владелец: Fallen · Telegram: <a href="https://t.me/FallenZaebat" target="_blank" rel="noopener noreferrer" style="color:var(--r2)">@FallenZaebat</a></p>
+<p style="margin-top:10px;font-size:13px">Проект не связан с Mojang и Microsoft.</p></div></footer>
+
+<script>
+const TG="https://t.me/FallenZaebat",u=4;
+function B(x,y,w,h,c,sh=1){let r=`<rect x="${x*u}" y="${y*u}" width="${w*u}" height="${h*u}" fill="${c}"/>`;
+if(sh)r+=`<rect x="${x*u}" y="${y*u}" width="${w*u}" height="${u*.6}" fill="#fff" opacity=".24"/><rect x="${x*u}" y="${y*u}" width="${u*.6}" height="${h*u}" fill="#fff" opacity=".12"/><rect x="${x*u}" y="${(y+h)*u-u*.6}" width="${w*u}" height="${u*.6}" fill="#000" opacity=".32"/><rect x="${(x+w)*u-u*.6}" y="${y*u}" width="${u*.6}" height="${h*u}" fill="#000" opacity=".24"/>`;return r}
+function pc(o){
+let s="";const G=o.t,sk=o.skin;
+if(o.wings)s+=`<polygon points="52,56 -6,-4 4,40 -4,74 30,100 54,110" fill="${o.wings}" opacity=".8"/><polygon points="108,56 166,-4 156,40 164,74 130,100 106,110" fill="${o.wings}" opacity=".8"/>`;
+if(o.cape)s+=B(9,18,22,32,o.cape)+B(9,46,5,4,o.cape,0)+B(18,47,5,3,o.cape,0)+B(26,46,5,4,o.cape,0);
+if(o.staff){s+=B(5.5,8,2,43,"#3b2a22")+B(3,2,7,7,o.orbd||"#2a1015")+B(4,3,5,5,o.orb)+B(5.3,4.3,2.4,2.4,"#fff2c0",0)}
+if(o.robe){s+=B(13,34,14,o.rl||16,o.robe)+B(18,34,4,o.rl||16,o.stripe||G)+B(13,34+(o.rl||16)-2,14,2,G)}
+if(!o.rl||o.rl<14){s+=B(14,34,6,14,o.pants)+B(20,34,6,14,o.pants)+B(13,47,7,4,o.boot)+B(20,47,7,4,o.boot)}
+else s+=B(13,49,7,2,o.boot)+B(20,49,7,2,o.boot);
+s+=B(13,18,14,16,o.a)+B(16,18,8,3,G)+B(18.5,22,3,3,o.g)+B(13,31,14,3,o.belt||"#2b1a14")+B(18.5,31,3,3,G);
+if(o.stripe&&!o.robe)s+=B(18.5,25,3,6,o.stripe);
+if(o.rune)s+=B(15.5,23,9,1.5,o.rune,0)+B(17,25.5,6,1.5,o.rune,0);
+s+=B(8,18,5,14,o.a)+B(27,18,5,14,o.a)+B(8,29,5,3,G)+B(27,29,5,3,G)+B(8,32,5,3,sk)+B(27,32,5,3,sk);
+if(o.pads)s+=B(6,16,8,5,o.a2||o.a)+B(6,16,8,1.4,G)+B(26,16,8,5,o.a2||o.a)+B(26,16,8,1.4,G);
+if(o.helm)s+=B(14,5,12,12,"#1d1a27")+B(16,10,8,4,"#0a0710")+B(16.6,11,2.6,1.6,"#ff3b1f")+B(20.8,11,2.6,1.6,"#ff3b1f")+B(14,5,12,2,"#34283f")+B(15,15,10,2,"#34283f");
+else{s+=B(15,7,10,10,sk)+B(17,11,2.4,1.6,"#fff",0)+B(20.6,11,2.4,1.6,"#fff",0)+B(18,11,1.4,1.6,o.eye||"#2a1a10",0)+B(21.6,11,1.4,1.6,o.eye||"#2a1a10",0)+B(16.4,9.6,3.4,1,o.hair,0)+B(20.2,9.6,3.4,1,o.hair,0)+B(18.5,13,3,1.2,"#c58f6b",0);
+if(o.beard)s+=B(15,13.5,10,4.5,o.beard)+B(17.5,14.8,5,1,"#7a3a30",0);else s+=B(18,15,4,1,"#8a4a3a",0);
+s+=B(14.5,5,11,3.5,o.hair)+B(14.5,7,1.6,5,o.hair)+B(23.9,7,1.6,5,o.hair)}
+const H=o.head;
+if(H=="crown")s+=B(14.5,2.5,11,3,"#f0b43a")+B(14.5,.5,2.2,3,"#f0b43a")+B(18.9,-1,2.2,4.5,"#f0b43a")+B(23.3,.5,2.2,3,"#f0b43a")+B(19.2,3,1.6,1.6,o.g,0);
+if(H=="dcrown")s+=B(14,2.5,12,3,"#26262e")+B(14,.5,2.6,3,"#26262e")+B(18.7,-1,2.6,4.5,"#26262e")+B(23.4,.5,2.6,3,"#26262e")+B(15,3.2,1.6,1.6,"#ff2a3a",0)+B(19.2,3.2,1.6,1.6,"#ff2a3a",0)+B(23.4,3.2,1.6,1.6,"#ff2a3a",0);
+if(H=="hat")s+=B(13,1.5,14,5,o.hatc)+B(11.5,6,17,1.6,o.hatc)+B(13,5,14,1.2,G,0)+B(24,-.5,5.5,1.6,"#f2eee6",0)+B(28,-1.6,3.5,1.6,"#fff",0);
+if(H=="helm")s+=B(14,1.5,3,4.5,"#2c2230")+B(18.5,-1,3,7,"#2c2230")+B(23,1.5,3,4.5,"#2c2230")+B(19.3,3,1.4,1.4,"#ff3b1f",0);
+if(H=="knight")s+=B(13.5,3.5,13,5,"#8f98ad")+B(13.5,8,2.2,7,"#8f98ad")+B(24.3,8,2.2,7,"#8f98ad")+B(19,8,2,5,"#8f98ad")+B(19,-1,2,5,o.plume,0)+B(17.5,-.5,5,2,o.plume,0);
+if(o.sword){s+=B(5.2,4,2.8,29,o.blade||"#d6dcec")+B(5.8,5,.8,27,"#fff",0)+B(2.8,32.5,7.6,1.8,G)+B(5.5,34.3,2,4,"#5a3a22")+B(4.6,33,4,3,sk)}
+if(o.dagger)s+=B(6.6,34,1.6,9,"#e6e8ee")+B(5,33,4.8,1.6,G);
+if(o.staff)s+=B(4.6,30,4,3,sk);
+if(o.shield){s+=B(30,19,9,12,o.sh1)+B(31,31,7,3,o.sh1)+B(32.5,34,4,2,o.sh1)+B(31.5,20.5,6,10,o.sh2)+B(32.8,31,3.4,2.2,o.sh2,0);if(o.lion)s+=B(33,22,3.4,6,G,0)+B(34,21.5,2.8,2,G,0)+B(32,25,1.5,2,G,0)+B(32.5,27.6,4,1.2,G,0)}
+return `<svg viewBox="-10 -8 180 232" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"><ellipse cx="80" cy="206" rx="56" ry="7" fill="#000" opacity=".5"/><g filter="url(#nz)">${s}</g></svg>`}
+const RK=[
+["Элита",50,"#a8182c",{skin:"#e0a77f",hair:"#6b3f22",beard:"#6b3f22",a:"#6b1030",t:"#e0b04a",g:"#2f7bff",pants:"#2a2018",boot:"#3a2a1e",belt:"#4a1226",head:"hat",hatc:"#5a0f28",dagger:1,robe:"#6b1030",rl:9,stripe:"#e0b04a",cape:"#3a0a18"}],
+["Титан",80,"#d42b1e",{skin:"#e0a77f",hair:"#8a5a2e",beard:"#7a4a24",a:"#8a1d1d",a2:"#4a4650",t:"#e3a63a",g:"#ff3b2f",pants:"#3a1414",boot:"#2a2024",pads:1,sword:1,blade:"#ffc4b0",shield:1,sh1:"#3a3036",sh2:"#26202a",rune:"#ff3b2f"}],
+["Принц",110,"#d9631a",{skin:"#e0a77f",hair:"#6a3b1e",a:"#5a2a2a",a2:"#6a6670",t:"#f0b43a",g:"#e11d2e",pants:"#3a2420",boot:"#2a1a18",pads:1,head:"crown",sword:1,shield:1,lion:1,sh1:"#7a2a14",sh2:"#b8451a",cape:"#7a1212"}],
+["Князь",130,"#d19a1c",{skin:"#e0a77f",hair:"#3a2a22",beard:"#3a2a22",a:"#1e1e24",t:"#e0b04a",g:"#ff2a3a",pants:"#16161a",boot:"#25201c",head:"dcrown",robe:"#17171c",stripe:"#9a1224",staff:1,orb:"#ff2a3a",orbd:"#25252c",cape:"#1a1a20",pads:1,a2:"#2a2a32"}],
+["Герцог",170,"#7a3ad1",{skin:"#e0a77f",hair:"#222",a:"#2a2236",t:"#8a3a2a",g:"#ff3b1f",pants:"#1a1424",boot:"#1a1420",head:"helm",helm:1,robe:"#1d1626",stripe:"#ff5a1f",staff:1,orb:"#ff4a2a",orbd:"#3a1a1a",cape:"#5a1224",pads:1,a2:"#3a2c46"}],
+["Стажер",210,"#2fa84a",{skin:"#e8b48a",hair:"#3a2a1a",a:"#586a58",t:"#7bd68a",g:"#7bd68a",pants:"#2a3a2e",boot:"#26302a",sword:1,belt:"#2a3a2e"}],
+["Модератор",250,"#2f7bd9",{skin:"#e0a77f",hair:"#2a2a30",a:"#4a5a78",a2:"#8f98ad",t:"#c8d4ee",g:"#4aa3ff",pants:"#252b3a",boot:"#1e222e",head:"knight",plume:"#2f7bd9",pads:1,sword:1,blade:"#cfe3ff",shield:1,sh1:"#3a4a6a",sh2:"#2f7bd9",cape:"#1f3a7a"}],
+["Админ",300,"#e0242f",{skin:"#e0a77f",hair:"#16161a",beard:"#16161a",a:"#1d0e12",a2:"#4a1218",t:"#f0b43a",g:"#ff2a3a",pants:"#14080c",boot:"#1a0c10",head:"crown",pads:1,staff:1,orb:"#ff2a3a",orbd:"#3a0a10",cape:"#8a0f1e",robe:"#14080c",stripe:"#c4182a"}],
+["Владелец",400,"#ff2a3a",{skin:"#e0a77f",hair:"#16161a",beard:"#16161a",a:"#15090c",a2:"#d4a02a",t:"#f6c453",g:"#ff2a3a",pants:"#14080c",boot:"#1a0c10",head:"crown",pads:1,sword:1,blade:"#ffb0b0",shield:1,lion:1,sh1:"#d4a02a",sh2:"#7a0c18",cape:"#a3101f",wings:"#e11d2e",rune:"#f6c453"}]];
+const dg=document.getElementById("dg");
+RK.forEach((r,i)=>dg.insertAdjacentHTML("beforeend",`<div class="card rv ${i==8?'top':''}" data-r="${['l','u','z','r'][i%4]}" style="--a:${r[2]}"><div class="img">${pc(r[3])}</div><h3>${r[0]}</h3><div class="price">${r[1]} ₴ <small>навсегда</small></div><a class="btn full" target="_blank" rel="noopener noreferrer" href="${TG}">Купить в ТГ</a></div>`));
+// ключи: правь название/цену здесь (цена = цена с сайта-оригинала / 3)
+function key(o){let s="";const hc=o.hc,sc=o.sc||"#9aa6bd",bc=o.bc||sc;
+const H=o.h;
+if(H=="sq")s+=B(12,2,16,16,hc)+B(17,7,6,6,"#07070c",0)+B(17,7,6,1.2,"#000",0);
+if(H=="wide")s+=B(7,3,26,9,hc)+B(14,12,12,6,hc)+B(22,5,4.5,4.5,o.gem,0)+B(22.8,5.8,1.6,1.6,"#fff",0);
+if(H=="cross")s+=B(7,7,26,7,hc)+B(13,2,14,16,hc)+B(10,4,6,3,hc)+B(24,4,6,3,hc)+B(17,7,6,6,o.gem)+B(18,8,2,2,"#fff",0);
+if(H=="round")s+=B(14,1,12,18,hc)+B(12,3,16,14,hc)+B(10,6,20,8,hc)+B(18.5,6.5,3,8,"#222",0)+B(16.5,6.5,7,2.5,"#222",0)+B(18.5,2.5,3,1.6,"#2f6bff",0);
+if(H=="crown")s+=B(12,3,16,15,hc)+B(12,.5,3.4,3.5,hc)+B(18.3,.5,3.4,3.5,hc)+B(24.6,.5,3.4,3.5,hc)+B(17,7,6,6,"#0a0710",0)+B(13,3,14,1.5,"#ffe08a",0);
+if(H=="tok")s+=B(13,2,14,17,hc)+B(13,2,3.4,3.4,"#38d66a",0)+B(23.6,2,3.4,3.4,"#38d66a",0)+B(13,15.6,3.4,3.4,"#38d66a",0)+B(23.6,15.6,3.4,3.4,"#38d66a",0)+B(16.5,7,7,2.2,"#b0561c",0)+B(19,9,2,6,"#b0561c",0);
+s+=B(17.5,18,5,29,sc);
+if(o.stripes)for(let y=20;y<46;y+=6)s+=B(17.5,y,5,3,"#0f2a24",0);
+if(o.collar)s+=B(17.5,18,5,4,o.collar,0);
+s+=B(22.5,38,5,3.5,bc)+B(22.5,43,4,3.5,bc)+B(17.5,44,5,3,bc);
+return `<svg viewBox="0 0 160 200" shape-rendering="crispEdges"><ellipse cx="80" cy="190" rx="44" ry="6" fill="#000" opacity=".5"/><g><g transform="rotate(9 80 100)"><g filter="url(#nz)">${s}</g><ellipse cx="80" cy="124" rx="36" ry="10" fill="none" stroke="${o.ring}" stroke-width="2.5" opacity=".9"><animate attributeName="ry" values="8;13;8" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".4;1;.4" dur="3s" repeatCount="indefinite"/></ellipse></g></g></svg>`}
+const CS=[
+["Обычный ключ","1,84","#2f5bd9",{h:"sq",hc:"#a9afbb",sc:"#8d96a8",ring:"#7fb2ff"}],
+["Монетный ключ","1,84","#d9861c",{h:"sq",hc:"#b4b9c4",sc:"#8d96a8",collar:"#e8731a",ring:"#e6e6e6"}],
+["Токен ключ","3,31","#2fa84a",{h:"tok",hc:"#e8a14a",sc:"#161a2a",bc:"#e8a14a",ring:"#4ae07a"}],
+["Инструментальный ключ","3,31","#b8451a",{h:"wide",hc:"#d8dce8",sc:"#8d96a8",gem:"#22c55e",ring:"#4ae07a"}],
+["Оружейный ключ","3,31","#c4182a",{h:"cross",hc:"#d8dce8",sc:"#9aa6bd",gem:"#ff2a3a",ring:"#e6e6e6"}],
+["Бронированный ключ","3,31","#1fa3a8",{h:"round",hc:"#d8dce8",sc:"#9aa6bd",ring:"#e6e6e6"}],
+["Донат ключ","25,54","#8a3ad9",{h:"crown",hc:"#f0a830",sc:"#f0c860",bc:"#f0a830",stripes:1,ring:"#f6c453"}]];
+CS.forEach((c,i)=>cg.insertAdjacentHTML("beforeend",`<div class="card rv" data-r="${['l','u','z','r'][i%4]}" style="--a:${c[2]}"><div class="img">${key(c[3])}</div><h3>${c[0]}</h3><div class="price"><small>От</small> ${c[1]} ₴</div><a class="btn full" target="_blank" rel="noopener noreferrer" href="${TG}">Купить кейсы можно в ТГ — @FallenZaebat</a></div>`));
+h1.innerHTML=pc(RK[4][3]);h2.innerHTML=pc(RK[8][3]);h3.innerHTML=pc(RK[3][3]);ab.innerHTML=pc(RK[8][3]);
+mq.innerHTML=("<span><b>◆</b> 1 токен = 0.15 грн</span><span><b>◆</b> Владелец: Fallen</span><span><b>◆</b> Покупки в Telegram @FallenZaebat</span><span><b>◆</b> Кейсы · Ранги · Токены</span>").repeat(6);
+const tn=document.getElementById("tn"),tr=document.getElementById("tr"),tp=document.getElementById("tp");
+function upd(v){v=Math.max(0,+v||0);tp.textContent=(Math.round(v*15)/100).toLocaleString("ru")+" ₴"}
+tn.oninput=()=>{tr.value=tn.value;upd(tn.value)};tr.oninput=()=>{tn.value=tr.value;upd(tr.value)};
+[100,500,1000,5000].forEach(v=>{const d=document.createElement("div");d.className="pack";d.innerHTML=`<b>${v}</b><span>${Math.round(v*15)/100} ₴</span>`;d.onclick=()=>{tn.value=tr.value=v;upd(v)};packs.appendChild(d)});upd(1000);
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");const b=e.target.querySelector("[data-n]");if(b&&!b.d){b.d=1;const n=+b.dataset.n;let t=0;const iv=setInterval(()=>{t+=n/30;if(t>=n){t=n;clearInterval(iv)}b.textContent=Math.floor(t)},40)}io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".rv").forEach((e,i)=>{e.style.transitionDelay=(i%4)*.09+"s";io.observe(e)});
+document.querySelectorAll(".card").forEach(c=>{c.addEventListener("mousemove",e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transitionDelay="0s";c.style.transform=`perspective(800px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateY(-6px)`});c.addEventListener("mouseleave",()=>c.style.transform="")});
+addEventListener("mousemove",e=>{cur.style.left=e.clientX+"px";cur.style.top=e.clientY+"px"});
+addEventListener("scroll",()=>{bar.style.width=scrollY/(document.body.scrollHeight-innerHeight)*100+"%";document.querySelector(".stage").style.transform=`translateY(${scrollY*.15}px)`});
+addEventListener("load",()=>setTimeout(()=>ld.classList.add("go"),900));
+const cv=fx,cx=cv.getContext("2d");let P=[];
+function rs(){cv.width=innerWidth;cv.height=innerHeight}rs();addEventListener("resize",rs);
+for(let i=0;i<80;i++)P.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,s:Math.random()*4+2,v:Math.random()*.7+.2,d:Math.random()*6,c:["#e11d2e","#ff4a2e","#f0b45a"][i%3]});
+(function a(){cx.clearRect(0,0,cv.width,cv.height);P.forEach(p=>{p.y-=p.v;p.d+=.02;p.x+=Math.sin(p.d)*.4;if(p.y<-10){p.y=cv.height+10;p.x=Math.random()*cv.width}cx.globalAlpha=.55;cx.fillStyle=p.c;cx.fillRect(p.x,p.y,p.s,p.s)});requestAnimationFrame(a)})();
+</script>
+</body>
+</html>
